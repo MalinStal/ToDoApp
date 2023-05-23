@@ -15,20 +15,24 @@ addBtn.addEventListener("click", function() {
     closeBtn.innerHTML = "X";
     li.appendChild(closeBtn);
 
-
- 
     input.value = "";
 
+    //stryker över texten när en uppgift är klar
 li.addEventListener("click" , function() {
     li.style.textDecoration = "line-through";
 })
-
+//debbelklicka för att ta bort sträcket om man behöver göra uppgiften igen
 li.addEventListener("dblclick", function() {
     li.style.textDecoration = "none";
 })
-
+//tar bort uppgiften när du klickar på x knappen
 closeBtn.addEventListener("click", e => {
     myUl.removeChild(li);
 })
 }); 
 
+
+
+fetch('https://dummyjson.com/todos?limit=10')
+.then(res => res.json())
+.then(console.log);
