@@ -31,8 +31,23 @@ closeBtn.addEventListener("click", e => {
 })
 }); 
 
-
-
+ 
+function fetchToDo(){
 fetch('https://dummyjson.com/todos?limit=10')
 .then(res => res.json())
-.then(console.log);
+.then(console.log); //((json) => getToDo(json))
+
+};
+fetchToDo()
+function getToDo (get) {
+    
+  //har en ide om att lopa igenom de färdiga todos för att skriva ut dom i en list ordning 
+    var todo = document.createElement("li");
+    todo.innerHTML= get.todos[0].todo + "    ";
+    myUl.appendChild(todo);
+    
+    var closeBtn = document.createElement("button");
+    closeBtn.innerHTML = "X";
+    todo.appendChild(closeBtn);
+}
+
